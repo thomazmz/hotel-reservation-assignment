@@ -12,21 +12,37 @@ class StayDateClassificationTest {
     @Test
     void shouldReturnProperDateClassificationForWeekDays() {
         // Given
-        LocalDate date = LocalDate.of(2019, Month.SEPTEMBER, 27);
+        LocalDate mondayDate = LocalDate.of(2019, Month.SEPTEMBER, 23);
+        LocalDate tuesdayDate = LocalDate.of(2019, Month.SEPTEMBER, 24);
+        LocalDate wednesdayDate = LocalDate.of(2019, Month.SEPTEMBER, 25);
+        LocalDate thursdayDate = LocalDate.of(2019, Month.SEPTEMBER, 26);
+        LocalDate fridayDate = LocalDate.of(2019, Month.SEPTEMBER, 27);
+
         // When
-        StayDateClassification classification = StayDateClassification.getClassification(date);
+        StayDateClassification mondayDateClassification = StayDateClassification.getClassification(mondayDate);
+        StayDateClassification tuesdayDateClassification = StayDateClassification.getClassification(tuesdayDate);
+        StayDateClassification wednesdayDateClassification = StayDateClassification.getClassification(wednesdayDate);
+        StayDateClassification thursdayDateClassification = StayDateClassification.getClassification(thursdayDate);
+        StayDateClassification fridayDateClassification = StayDateClassification.getClassification(fridayDate);
+
         // Then
-        assertEquals(classification, StayDateClassification.WEEK_DAY);
+        assertEquals(mondayDateClassification, StayDateClassification.WEEK_DAY);
+        assertEquals(tuesdayDateClassification, StayDateClassification.WEEK_DAY);
+        assertEquals(wednesdayDateClassification, StayDateClassification.WEEK_DAY);
+        assertEquals(thursdayDateClassification, StayDateClassification.WEEK_DAY);
+        assertEquals(fridayDateClassification, StayDateClassification.WEEK_DAY);
     }
 
     @Test
     void shouldReturnProperDateClassificationForWeekendDays() {
         // Given
-        LocalDate date = LocalDate.of(2019, Month.SEPTEMBER, 28);
+        LocalDate saturdayDate = LocalDate.of(2019, Month.SEPTEMBER, 28);
+        LocalDate sundayDate = LocalDate.of(2019, Month.SEPTEMBER, 29);
         // When
-        StayDateClassification classification = StayDateClassification.getClassification(date);
+        StayDateClassification saturdayDateClassification = StayDateClassification.getClassification(saturdayDate);
+        StayDateClassification sundayDateClassification = StayDateClassification.getClassification(sundayDate);
         // Then
-        assertEquals(classification, StayDateClassification.WEEKEND_DAY);
+        assertEquals(saturdayDateClassification, StayDateClassification.WEEKEND_DAY);
+        assertEquals(sundayDateClassification, StayDateClassification.WEEKEND_DAY);
     }
-
 }
