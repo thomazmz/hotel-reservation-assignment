@@ -22,7 +22,7 @@ class HotelPriceTableTest {
     }
 
     @Test
-    void shoulRemovePriceFromPriceTable() {
+    void shouldRemovePriceFromPriceTable() {
         // Given
         HotelPriceTable priceTable = new HotelPriceTable();
         priceTable.addPrice(StayDateClassification.WEEK_DAY, ClientClassification.REGULAR, 50D);
