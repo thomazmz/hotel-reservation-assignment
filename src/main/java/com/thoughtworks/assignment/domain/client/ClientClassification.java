@@ -1,6 +1,6 @@
 package com.thoughtworks.assignment.domain;
 
-public enum ClientType {
+public enum ClientClassification {
     REWARD,
     NORMAL
 }

@@ -3,7 +3,7 @@ package com.thoughtworks.assignment.domain;
 import java.util.Date;
 import java.util.Map;
 
-public class TaxTable {
+public class HotelTaxTable {
 
     private Map<TaxKey, Double> taxes;
 
