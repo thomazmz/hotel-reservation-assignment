@@ -17,7 +17,7 @@ class HotelTest {
     Hotel hotel;
 
     @BeforeEach
-    void createNewHotel() {
+    void createNewHotel() throws Exception {
         // Given
         HotelPriceTable priceTable = new HotelPriceTable();
         priceTable.addPrice(ReservationDateClassification.WEEK_DAY, ClientClassification.REGULAR, 50D);
@@ -28,7 +28,7 @@ class HotelTest {
     }
 
     @Test
-    void sohuldCalculatePriceForGivenDate() {
+    void shouldCalculatePriceForGivenDate() {
         // Given
         ReservationDate date = new ReservationDate(2019, Month.SEPTEMBER, 27);
         // When
@@ -38,7 +38,7 @@ class HotelTest {
     }
 
     @Test
-    void sohuldCalculatePriceForDateList() {
+    void shouldCalculatePriceForDateList() {
         // Given
         List<ReservationDate> dates = new ArrayList<>();
         dates.add(new ReservationDate(2019, Month.SEPTEMBER, 27));

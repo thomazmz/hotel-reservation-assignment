@@ -1,4 +1,4 @@
-package com.thoughtworks.assignment.application;
+package com.thoughtworks.assignment.application.hotel;
 
 import com.thoughtworks.assignment.domain.client.ClientClassification;
 import com.thoughtworks.assignment.domain.hotel.Hotel;
@@ -12,8 +12,12 @@ public class HotelService {
 
     HotelRepository hotelRepository;
 
-    public HotelService(HotelRepository hotelRepository) {
-        this.hotelRepository = hotelRepository;
+    public HotelService() {
+        this.hotelRepository = new HotelRepository();
+    }
+
+    public void create(Hotel hotel) {
+        hotelRepository.add(hotel);
     }
 
     public Hotel getCheapestHotel(ClientClassification clientClassification, List<ReservationDate> dates) {

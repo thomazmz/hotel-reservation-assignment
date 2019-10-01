@@ -1,4 +1,4 @@
-package com.thoughtworks.assignment.application;
+package com.thoughtworks.assignment.application.hotel;
 
 import com.thoughtworks.assignment.domain.hotel.Hotel;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 public class HotelRepository {
 
-    private static List<Hotel> hotels = new ArrayList<>();
+    private List<Hotel> hotels = new ArrayList<>();
 
     public void add(Hotel hotel) {
         hotels.add(hotel);

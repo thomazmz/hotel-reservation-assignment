@@ -1,32 +1,30 @@
-package com.thoughtworks.assignment.domain;
+package com.thoughtworks.assignment.domain.hotel;
 
 import com.thoughtworks.assignment.domain.client.ClientClassification;
-import com.thoughtworks.assignment.domain.hotel.Hotel;
+import com.thoughtworks.assignment.domain.reservationDate.ReservationDate;
 
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 public class HotelPriceComparator implements Comparator<Hotel> {
 
-    private List<Date> dates = new ArrayList<>();
+    private List<ReservationDate> dates;
 
     private ClientClassification clientClassification;
 
-    HotelPriceComparator(ClientClassification clientClassification, List<Date> dates) {
+    public HotelPriceComparator(ClientClassification clientClassification, List<ReservationDate> dates) {
         this.clientClassification = clientClassification;
         this.dates = dates;
     }
 
     @Override
     public int compare(Hotel firstHotel, Hotel secondHotel) {
-        Double firstHotelPrice = firstHotel.getTotalPrice(this.clientClassification, this.dates);
-        Double secondHotelPrice = firstHotel.getTotalPrice(this.clientClassification, this.dates);
-        if(firstHotelPrice == secondHotelPrice) {
+        Double firstHotelPrice = firstHotel.getTotalPrice(this.dates, this.clientClassification);
+        Double secondHotelPrice = secondHotel.getTotalPrice(this.dates, this.clientClassification);
+        if(firstHotelPrice.equals(secondHotelPrice)) {
             Double firstHotelRate =  firstHotel.getRate();
             Double secondHotelRate = secondHotel.getRate();
-            return Double.compare(firstHotelRate, secondHotelRate);
+            return Double.compare(secondHotelRate, firstHotelRate);
         }
         return Double.compare(firstHotelPrice, secondHotelPrice);
     }

@@ -2,5 +2,9 @@ package com.thoughtworks.assignment.domain.client;
 
 public enum ClientClassification {
     REWARDS,
-    REGULAR
+    REGULAR;
+
+    public static final int size() {
+        return values().length;
+    }
 }

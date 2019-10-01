@@ -3,33 +3,30 @@ package com.thoughtworks.assignment.domain.hotel;
 import com.thoughtworks.assignment.domain.client.ClientClassification;
 import com.thoughtworks.assignment.domain.reservationDate.ReservationDate;
 
-import java.util.Date;
 import java.util.List;
 
 public class Hotel {
+
+    private static final String INVALID_PRICE_TABLE_MESSAGE = "Incomplete table";
 
     private String name;
 
     private Double rate;
 
-    private HotelPriceTable hotelPriceTable;
+    private HotelPriceTable priceTable;
 
-    public Hotel(String name, Double rate, HotelPriceTable hotelPriceTable) {
+    public Hotel(String name, Double rate, HotelPriceTable priceTable) {
         this.name = name;
         this.rate = rate;
-        this.hotelPriceTable = hotelPriceTable;
-    }
-
-    public String getName() {
-        return name;
+        this.priceTable = priceTable;
     }
 
     public Double getRate() {
         return rate;
     }
 
-    public Double getPrice(ReservationDate date, ClientClassification clientClassification) {
-        return hotelPriceTable.getPrice(date, clientClassification);
+    public String getName() {
+        return name;
     }
 
     public Double getTotalPrice(List<ReservationDate> dates, ClientClassification clientClassification) {
@@ -37,5 +34,9 @@ public class Hotel {
                 .stream()
                 .map(date -> getPrice(date, clientClassification))
                 .reduce(0.00,(accumulator, price) -> accumulator + price);
+    }
+
+    public Double getPrice(ReservationDate date, ClientClassification clientClassification) {
+        return priceTable.getPrice(date, clientClassification);
     }
 }
