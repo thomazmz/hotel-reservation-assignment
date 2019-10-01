@@ -1,10 +1,16 @@
 package com.thoughtworks.assignment.domain.client;
 
 public enum ClientClassification {
-    REWARDS,
-    REGULAR;
+    REWARDS("Rewards"),
+    REGULAR("Rewards");
 
-    public static final int size() {
-        return values().length;
+    private String name;
+
+    private ClientClassification(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
