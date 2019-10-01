@@ -1,6 +1,6 @@
-package com.thoughtworks.assignment.domain;
+package com.thoughtworks.assignment.domain.client;
 
 public enum ClientClassification {
     REWARD,
-    NORMAL
+    REGULAR
 }

@@ -1,4 +1,6 @@
-package com.thoughtworks.assignment.domain;
+package com.thoughtworks.assignment.application;
+
+import com.thoughtworks.assignment.domain.hotel.Hotel;
 
 import java.util.ArrayList;
 import java.util.List;
