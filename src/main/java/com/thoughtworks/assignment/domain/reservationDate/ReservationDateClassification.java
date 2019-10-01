@@ -1,4 +1,4 @@
-package com.thoughtworks.assignment.domain.stayDate;
+package com.thoughtworks.assignment.domain.reservationDate;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
