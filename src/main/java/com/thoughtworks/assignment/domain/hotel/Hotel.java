@@ -1,6 +1,7 @@
-package com.thoughtworks.assignment.domain;
+package com.thoughtworks.assignment.domain.hotel;
 
 import com.thoughtworks.assignment.domain.client.ClientClassification;
+import com.thoughtworks.assignment.domain.reservationDate.ReservationDate;
 
 import java.util.Date;
 import java.util.List;
@@ -27,14 +28,14 @@ public class Hotel {
         return rate;
     }
 
-    public Double getPrice(ClientClassification clientClassification, Date date) {
+    public Double getPrice(ReservationDate date, ClientClassification clientClassification) {
         return hotelPriceTable.getPrice(date, clientClassification);
     }
 
-    public Double getTotalPrice(ClientClassification clientClassification, List<Date> dates) {
+    public Double getTotalPrice(List<ReservationDate> dates, ClientClassification clientClassification) {
         return dates
                 .stream()
-                .map(date -> getPrice(clientClassification, date))
+                .map(date -> getPrice(date, clientClassification))
                 .reduce(0.00,(a,b) -> a+b);
     }
 }
