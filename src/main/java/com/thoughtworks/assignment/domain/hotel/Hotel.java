@@ -36,6 +36,6 @@ public class Hotel {
         return dates
                 .stream()
                 .map(date -> getPrice(date, clientClassification))
-                .reduce(0.00,(a,b) -> a+b);
+                .reduce(0.00,(accumulator, price) -> accumulator + price);
     }
 }
