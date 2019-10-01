@@ -1,10 +1,9 @@
 package com.thoughtworks.assignment.domain.hotel;
 
 import com.thoughtworks.assignment.domain.client.ClientClassification;
-import com.thoughtworks.assignment.domain.stayDate.StayDate;
-import com.thoughtworks.assignment.domain.stayDate.StayDateClassification;
+import com.thoughtworks.assignment.domain.reservationDate.ReservationDate;
+import com.thoughtworks.assignment.domain.reservationDate.ReservationDateClassification;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,17 +11,21 @@ public class HotelPriceTable {
 
     private Map<PriceKey, Double> prices = new HashMap<>();
 
-    public void addPrice(StayDateClassification dateClassification, ClientClassification clientClassification, Double value) {
+    public void addPrice(ReservationDateClassification dateClassification, ClientClassification clientClassification, Double value) {
         PriceKey priceKey = new PriceKey(dateClassification, clientClassification);
         prices.put(priceKey, value);
     }
 
-    public void removePrice(StayDateClassification dateClassification, ClientClassification clientClassification) {
+    public void removePrice(ReservationDateClassification dateClassification, ClientClassification clientClassification) {
         PriceKey priceKey = new PriceKey(dateClassification, clientClassification);
         prices.remove(priceKey);
     }
 
-    public Double getPrice(StayDateClassification dateClassification, ClientClassification clientClassification) {
+    public Double getPrice(ReservationDate date, ClientClassification clientClassification) {
+        return getPrice(date.getClassification(), clientClassification);
+    }
+
+    public Double getPrice(ReservationDateClassification dateClassification, ClientClassification clientClassification) {
         PriceKey priceKey = new PriceKey(dateClassification, clientClassification);
         return prices.get(priceKey);
     }
@@ -33,10 +36,10 @@ public class HotelPriceTable {
 
     private class PriceKey {
 
-        private final StayDateClassification dateClassification;
+        private final ReservationDateClassification dateClassification;
         private final ClientClassification clientClassification;
 
-        public PriceKey(StayDateClassification dateClassification, ClientClassification clientClassification) {
+        public PriceKey(ReservationDateClassification dateClassification, ClientClassification clientClassification) {
             this.dateClassification = dateClassification;
             this.clientClassification = clientClassification;
         }
