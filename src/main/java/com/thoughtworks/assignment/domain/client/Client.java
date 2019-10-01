@@ -1,10 +1,10 @@
-package com.thoughtworks.assignment.domain;
+package com.thoughtworks.assignment.domain.client;
 
 public class Client {
 
-    ClientClassification classification;
+    private ClientClassification classification;
 
-    Client(ClientClassification classification) {
+    public Client(ClientClassification classification) {
         this.classification = classification;
     }
 
