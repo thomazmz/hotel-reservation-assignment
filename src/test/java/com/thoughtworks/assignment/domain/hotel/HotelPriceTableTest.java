@@ -19,19 +19,19 @@ class HotelPriceTableTest {
         // Given
         priceTable = new HotelPriceTable();
         priceTable.addPrice(ReservationDateClassification.WEEK_DAY, ClientClassification.REGULAR, 50D);
-        priceTable.addPrice(ReservationDateClassification.WEEK_DAY, ClientClassification.REWARD, 40D);
+        priceTable.addPrice(ReservationDateClassification.WEEK_DAY, ClientClassification.REWARDS, 40D);
         priceTable.addPrice( ReservationDateClassification.WEEKEND_DAY, ClientClassification.REGULAR, 80D);
     }
 
     @Test
     void shouldAddPriceToPriceTable() {
         // Given
-        priceTable.addPrice(ReservationDateClassification.WEEKEND_DAY, ClientClassification.REWARD, 70D);
+        priceTable.addPrice(ReservationDateClassification.WEEKEND_DAY, ClientClassification.REWARDS, 70D);
         // When
-        Double price = priceTable.getPrice(ReservationDateClassification.WEEK_DAY, ClientClassification.REGULAR);
+        Double price = priceTable.getPrice(ReservationDateClassification.WEEKEND_DAY, ClientClassification.REWARDS);
         // Then
         assertEquals(4, priceTable.size());
-        assertEquals(50D, price);
+        assertEquals(70D, price);
     }
 
     @Test
@@ -49,7 +49,7 @@ class HotelPriceTableTest {
         ReservationDate date = new ReservationDate(2019, Month.SEPTEMBER, 27);
         // When
         Double regularPrice = priceTable.getPrice(date, ClientClassification.REGULAR);
-        Double rewardPrice = priceTable.getPrice(date, ClientClassification.REWARD);
+        Double rewardPrice = priceTable.getPrice(date, ClientClassification.REWARDS);
         // Then
         assertEquals(50D, regularPrice);
         assertEquals(40D, rewardPrice);
