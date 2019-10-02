@@ -1,11 +1,12 @@
 package com.thoughtworks.assignment.domain.hotel;
 
-import com.thoughtworks.assignment.domain.client.ClientClassification;
-import com.thoughtworks.assignment.domain.reservationDate.ReservationDate;
-import com.thoughtworks.assignment.domain.reservationDate.ReservationDateClassification;
+import com.thoughtworks.assignment.domain.price.ClientType;
+import com.thoughtworks.assignment.domain.price.PriceTable;
+import com.thoughtworks.assignment.domain.price.DayType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,22 +18,21 @@ class HotelTest {
     Hotel hotel;
 
     @BeforeEach
-    void createNewHotel() throws Exception {
-        // Given
-        HotelPriceTable priceTable = new HotelPriceTable();
-        priceTable.addPrice(ReservationDateClassification.WEEK_DAY, ClientClassification.REGULAR, 50D);
-        priceTable.addPrice(ReservationDateClassification.WEEK_DAY, ClientClassification.REWARDS, 40D);
-        priceTable.addPrice( ReservationDateClassification.WEEKEND_DAY, ClientClassification.REGULAR, 80D);
-        priceTable.addPrice(ReservationDateClassification.WEEKEND_DAY, ClientClassification.REWARDS, 70D);
+    void createNewHotel() {
+        PriceTable priceTable = new PriceTable();
+        priceTable.addPrice(DayType.WEEK, ClientType.REGULAR, 50D);
+        priceTable.addPrice(DayType.WEEK, ClientType.REWARDS, 40D);
+        priceTable.addPrice( DayType.WEEKEND, ClientType.REGULAR, 80D);
+        priceTable.addPrice(DayType.WEEKEND, ClientType.REWARDS, 70D);
         hotel = new Hotel("MyBestHotel", 5D, priceTable);
     }
 
     @Test
     void shouldCalculatePriceForGivenDate() {
         // Given
-        ReservationDate date = new ReservationDate(2019, Month.SEPTEMBER, 27);
+        LocalDate date = LocalDate.of(2019, Month.SEPTEMBER, 27);
         // When
-        Double price = hotel.getPrice(date, ClientClassification.REWARDS);
+        Double price = hotel.getPrice(date, ClientType.REWARDS);
         // Then
         assertEquals(40D, price);
     }
@@ -40,12 +40,12 @@ class HotelTest {
     @Test
     void shouldCalculatePriceForDateList() {
         // Given
-        List<ReservationDate> dates = new ArrayList<>();
-        dates.add(new ReservationDate(2019, Month.SEPTEMBER, 27));
-        dates.add(new ReservationDate(2019, Month.SEPTEMBER, 28));
-        dates.add(new ReservationDate(2019, Month.SEPTEMBER, 29));
+        List<LocalDate> dates = new ArrayList<>();
+        dates.add(LocalDate.of(2019, Month.SEPTEMBER, 27));
+        dates.add(LocalDate.of(2019, Month.SEPTEMBER, 28));
+        dates.add(LocalDate.of(2019, Month.SEPTEMBER, 29));
         // When
-        Double price = hotel.getTotalPrice(dates, ClientClassification.REWARDS);
+        Double price = hotel.getTotalPrice(dates, ClientType.REWARDS);
         // Then
         assertEquals(180D, price);
     }

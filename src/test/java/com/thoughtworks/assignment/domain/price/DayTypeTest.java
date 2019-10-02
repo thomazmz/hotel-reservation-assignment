@@ -1,16 +1,14 @@
-package com.thoughtworks.assignment.domain.reservationDate;
+package com.thoughtworks.assignment.domain.price;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.LocalDate;
 import java.time.Month;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ReservationDateClassificationTest {
+class DayTypeTest {
 
     @ParameterizedTest()
     @CsvSource({
@@ -24,9 +22,9 @@ class ReservationDateClassificationTest {
         // Given
         LocalDate date = LocalDate.of(year, Month.valueOf(month), day);
         // When
-        ReservationDateClassification dateClassification = ReservationDateClassification.getClassification(date);
+        DayType dateClassification = DayType.getType(date);
         // Then
-        assertEquals(ReservationDateClassification.WEEK_DAY, dateClassification);
+        assertEquals(DayType.WEEK, dateClassification);
     }
 
     @ParameterizedTest()
@@ -38,8 +36,8 @@ class ReservationDateClassificationTest {
         // Given
         LocalDate date = LocalDate.of(year, Month.valueOf(month), day);
         // When
-        ReservationDateClassification dateClassification = ReservationDateClassification.getClassification(date);
+        DayType dateClassification = DayType.getType(date);
         // Then
-        assertEquals(ReservationDateClassification.WEEKEND_DAY, dateClassification);
+        assertEquals(DayType.WEEKEND, dateClassification);
     }
 }
