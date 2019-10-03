@@ -1,4 +1,4 @@
-# Hotel Searcher Assignment
+# Hotel Finder Assignment
 
 A Miami hotel chain would like to offer an internet booking service. The chain is made up of three hotels: Lakewood, Bridgewood and Ridgewood. Each hotel has different weekday or weekend rates, including specific rates for loyalty program participants. Additionally, each hotel has a rating, indicates a service of excellence.
 
@@ -12,42 +12,93 @@ Write a program to find the cheapest hotel. The program entry will be a sequence
 
 - Ridgewood has a rating of 5 and its weekday rates are $220 for regular customers and $100 for loyalty program participants. Weekend rates are respectively $150 and $40 for regular customers and loyalty program participants.
 
-## Getting Started
+## Technologies and Prerequisites
 
-Once you [build](#project-build) the project you're gonna be able to run it simply by entering the following terminal command under the project directory:
+* [Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html/) - Chosen language (depends on Java 11 or latter)
+* [Maven](https://maven.apache.org/) - Dependency Management (depends on Maven 3.6.2 or latter)
+* [jUnit5](https://junit.org/junit5/) - Unit Testing Framework (managed and downloaded by maven during the building process)
 
-```
- sh findCheapestHotel "Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)"
-```
+## Project Building and Testing
 
-### Project Building and Testing
+As this project relies on Maven as a dependency manager and as a test runner, make shure you have Maven 3.6.2 or latter installed on your machine by entering `mvn --version`  on any terminal window. For more information about how to install Maven, access its official web site (http://maven.apache.org/install.html).
 
-This project relies on Maven as dependency manager and test runner. Thus, make shure you have Maven 3.6.2 or latter installed on your machine by entering `mvn --version`  on any terminal window. For more information about how to install Maven, access its official web site (http://maven.apache.org/install.html).
-
-**Building:** Navigate through a terminal window to the project directory and entering:
+**Building the Project:** Navigate through a terminal window to the project root directory and enter the following command waiting untill the project successfully had been builded.
 
 ```
 mvn package
 ```
 
-**Testing:** The testing pipeline will automatically be triggered during the build process discribed above. Even so, if you want/need, you can achieve to run it independently by navigating to the project directory and entering:
+**Testing the Project:** The testing pipeline will automatically be triggered during the building process discribed above. Even so, if you want/need, you can achieve to run it independently by navigating to the project root directory and entering:
 
 ```
 mvn test
 ```
 
-## Technologies and Prerequisites
+## Usage
 
-* [Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html/) - Chosen language (depends on Java 11 or latter)
-* [Maven](https://maven.apache.org/) - Dependency Management (depends on Maven 3.6.2 or latter)
-* [jUnit5](https://junit.org/junit5/) - Unit Testing Framework
+Once you successfully [build](#project-building-and-testing) the project you're gonna be able to run the program simply by entering the following terminal command under the project root directory, which will call the `findCheapestHotel` script passing the value surrounded by quotation marks as input.
 
-## Authors
+```
+sh findCheapestHotel "Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)"
+```
 
-* **Thomaz Zandonotto** - Web Developer - 
+If you call the `findCheapestHotel` script without any input string following it, the program will automatically look for an input file named *input* on the project root directory.
+
+```
+sh findCheapestHotel
+```
+
+Check the "Input Formatting" section [here](#input-formatting) to better understand how inputs must to be formatted.
+
+Check the "Usage Without Shell Script" section [here](#usage-without-shell-script) to run the program without using the `findCheapestHotel` script. 
+
+## Input Formatting
+
+Inputs, both when typed inline on terminal or when pre defined in an input file, must match the following pattern to be considered valid and readable by the program. Extra spaces and letter case will be disconsidered by the program during input parsing.
+
+```
+<client_type>: <date>, <date>, <date>, ...
+```
+
+### Client Type
+There are two  valid `client_type` strings. They are: `Rewards` and `Regular`. 
+
+### Dates
+You can specify as many `date` parameters as you want. However, they also must follow a pattern to be considered valid and readable by the program. It is: 
+
+```
+<day><month><year>(<day_of_week>)
+```
+
+- `day` and `year` must be whole numbers;
+- `month` must be `Jan`, `Feb`, `Mar`, `Abr`, `May`, `Jun`, `Jul`, `Ago`, `Sep`, `Out`, `Nov` or `Dec`;
+- `day_of_week` must be `mon`, `mond`,  `tue`, `tues`, `wed`, `wedn`, `thu`, `thur`, `fri`, `frid`, `sat`, `satu`, `sun` or `sund`
+
+In addition to the above constraints, the given date have to be calendar consistent: A value greater than 31 would not be considered valid when passed as a day, for example. An example of valid input string would be:
+
+```
+Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)
+```
+
+### Input Files
+When creating an input file, you must have your input strings one bellow the other, following the above specified rules. Make shure you named your file *input* and that it is on the project root folder. An example of valid input file would be:
+
+```
+Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed), 19Mar2009(thu)
+Regular: 20Mar2009(fri), 21Mar2009(sat)
+Rewards: 26Mar2009(thur), 27Mar2009(fri), 28Mar2009(sat)
+```
+
+## Usage Without Shell Script
+
+--- Something goes here --- 
+
+## Author
+
+**Thomaz Zandonotto** - Software Developer - 
 [Github](https://github.com/thomazmz) |
 [Linkedin](https://www.linkedin.com/in/thomaz-zandonotto/)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+2019 - This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
