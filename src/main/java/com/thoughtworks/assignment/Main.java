@@ -11,11 +11,15 @@ import java.util.List;
 
 public class Main {
 
-    public static final String inputFilePath= "/input";
+    private static final String invalidInputMessage= "Invalid input string";
 
-    public static final InputReader inputReader = new InputReader();
+    private static final String fileReadingErrorMessage= "Could not find/read input file";
 
-    public static final HotelService hotelService = new HotelService();
+    private static final String inputFilePath= "/input";
+
+    private static final InputReader inputReader = new InputReader();
+
+    private static final HotelService hotelService = new HotelService();
 
     public static void main(String[] args) {
 
@@ -28,11 +32,11 @@ public class Main {
                     List<LocalDate> dates = inputWrapper.getDates();
                     System.out.println(hotelService.getCheapestHotel(clientType, dates).getName());
                 } catch (Exception e) {
-                    System.out.println("Invalid Input");
+                    System.out.println(invalidInputMessage);
                 }
             });
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(fileReadingErrorMessage);
         }
 
     }
