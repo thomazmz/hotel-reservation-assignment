@@ -54,7 +54,7 @@ The program reads input strings from the "input" file located on the project roo
 There are two  valid `client_type` strings. They are: `Rewards` and `Regular`. 
 
 ### Dates
-You can specify as many `date` parameters as you want. However, they also must follow a pattern to be considered valid and readable by the program. The `date` string must match the following template:
+You can specify as many `date` parameters as you want. However, they also must follow a pattern to be considered valid and readable by the program. Date strings that represents identical date instances will be considered only once during input parsing. The `date` string must match the following template:
 
 ```
 <day><month><year>(<day_of_week>)

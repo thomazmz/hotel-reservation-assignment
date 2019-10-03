@@ -32,6 +32,7 @@ class InputParser {
         List<String> stringDates = Arrays.asList(string.split("\\s*,\\s*"));
         return stringDates.stream()
                 .map(InputParser::parseDate)
+                .distinct()
                 .collect(Collectors.toList());
     }
 
