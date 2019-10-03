@@ -2,7 +2,7 @@
 
 A Miami hotel chain would like to offer an internet booking service. The chain is made up of three hotels: Lakewood, Bridgewood and Ridgewood. Each hotel has different weekday or weekend rates, including specific rates for loyalty program participants. Additionally, each hotel has a rating, indicating its service quality.
 
-Write a program to find the cheapest hotel. The program entry will be a sequence of data for a customer participating or not in the loyalty program. Use "Regular" to name a regular customer and "Reward" to a customer participating in the loyalty program. The exit will be the cheapest available hotel or, in case of a tie, the higher rated hotel will be returned.
+Write a program to find the cheapest hotel. The program entry will be a sequence of data for a customer participating or not in the loyalty program. Use "Regular" to name a regular customer and "Rewards" to a customer participating in the loyalty program. The exit will be the cheapest available hotel or, in case of a tie, the higher rated hotel will be returned.
 
 ### Business specifications
 
