@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HoteComparatorStrategyTest {
+class HotePriceComparatorTest {
 
     static Hotel bestHotel;
     static Hotel fantasticHotel;
@@ -52,9 +52,9 @@ class HoteComparatorStrategyTest {
     void shouldReturnNegative() {
         // Given
         ClientType clientType = ClientType.REGULAR;
-        HoteComparatorStrategy hoteComparatorStrategy = new HoteComparatorStrategy(clientType, dates);
+        HotePriceComparator hotePriceComparator = new HotePriceComparator(clientType, dates);
         // When
-        Integer comparatorResult = hoteComparatorStrategy.compare(bestHotel, fantasticHotel);
+        Integer comparatorResult = hotePriceComparator.compare(bestHotel, fantasticHotel);
         // Then
        assertTrue(comparatorResult < 0);
     }
@@ -63,9 +63,9 @@ class HoteComparatorStrategyTest {
     void shouldReturnPositive() {
         // Given
         ClientType clientType = ClientType.REWARDS;
-        HoteComparatorStrategy hoteComparatorStrategy = new HoteComparatorStrategy(clientType, dates);
+        HotePriceComparator hotePriceComparator = new HotePriceComparator(clientType, dates);
         // When
-        Integer comparatorResult = hoteComparatorStrategy.compare(fantasticHotel, bestHotel);
+        Integer comparatorResult = hotePriceComparator.compare(fantasticHotel, bestHotel);
         // Then
         assertFalse(comparatorResult < 0);
     }
@@ -74,9 +74,9 @@ class HoteComparatorStrategyTest {
     void shouldReturnZero() {
         // Given
         ClientType clientType = ClientType.REWARDS;
-        HoteComparatorStrategy hoteComparatorStrategy = new HoteComparatorStrategy(clientType, dates);
+        HotePriceComparator hotePriceComparator = new HotePriceComparator(clientType, dates);
         // When
-        Integer comparatorResult = hoteComparatorStrategy.compare(fantasticHotel, fantasticHotel);
+        Integer comparatorResult = hotePriceComparator.compare(fantasticHotel, fantasticHotel);
         // Then
         assertTrue(comparatorResult == 0);
     }

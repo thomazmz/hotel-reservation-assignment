@@ -2,7 +2,7 @@ package com.thoughtworks.assignment.application.hotel;
 
 import com.thoughtworks.assignment.domain.price.ClientType;
 import com.thoughtworks.assignment.domain.hotel.Hotel;
-import com.thoughtworks.assignment.domain.hotel.HoteComparatorStrategy;
+import com.thoughtworks.assignment.domain.hotel.HotePriceComparator;
 
 import java.time.LocalDate;
 import java.util.Collections;
@@ -22,8 +22,8 @@ public class HotelService {
 
     public List<Hotel> getHotelsOrderedByLowestPrice(ClientType clientType, List<LocalDate> dates) {
         List<Hotel> hotels = repository.findAll();
-        HoteComparatorStrategy hoteComparatorStrategy = new HoteComparatorStrategy(clientType, dates);
-        Collections.sort(hotels, hoteComparatorStrategy);
+        HotePriceComparator hotePriceComparator = new HotePriceComparator(clientType, dates);
+        Collections.sort(hotels, hotePriceComparator);
         return hotels;
     }
 }

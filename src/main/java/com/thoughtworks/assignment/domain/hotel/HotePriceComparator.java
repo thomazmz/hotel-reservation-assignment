@@ -6,13 +6,13 @@ import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 
-public class HoteComparatorStrategy implements Comparator<Hotel> {
+public class HotePriceComparator implements Comparator<Hotel> {
 
     private List<LocalDate> dates;
 
     private ClientType clientType;
 
-    public HoteComparatorStrategy(ClientType clientType, List<LocalDate> dates) {
+    public HotePriceComparator(ClientType clientType, List<LocalDate> dates) {
         this.clientType = clientType;
         this.dates = dates;
     }
