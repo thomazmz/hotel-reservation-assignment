@@ -20,8 +20,8 @@ class HotelTest {
     @BeforeEach
     void createNewHotel() {
         PriceTable priceTable = new PriceTable();
-        priceTable.addPrice(DayType.WEEK, ClientType.REGULAR, 50D);
-        priceTable.addPrice(DayType.WEEK, ClientType.REWARDS, 40D);
+        priceTable.addPrice(DayType.WEEKDAY, ClientType.REGULAR, 50D);
+        priceTable.addPrice(DayType.WEEKDAY, ClientType.REWARDS, 40D);
         priceTable.addPrice( DayType.WEEKEND, ClientType.REGULAR, 80D);
         priceTable.addPrice(DayType.WEEKEND, ClientType.REWARDS, 70D);
         hotel = new Hotel("MyBestHotel", 5D, priceTable);

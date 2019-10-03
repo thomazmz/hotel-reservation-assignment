@@ -24,7 +24,7 @@ class DayTypeTest {
         // When
         DayType dateClassification = DayType.getType(date);
         // Then
-        assertEquals(DayType.WEEK, dateClassification);
+        assertEquals(DayType.WEEKDAY, dateClassification);
     }
 
     @ParameterizedTest()

@@ -15,8 +15,8 @@ class PriceTableTest {
     @BeforeEach
     void createNewHotels() {
         priceTable = new PriceTable();
-        priceTable.addPrice(DayType.WEEK, ClientType.REGULAR, 50D);
-        priceTable.addPrice(DayType.WEEK, ClientType.REWARDS, 40D);
+        priceTable.addPrice(DayType.WEEKDAY, ClientType.REGULAR, 50D);
+        priceTable.addPrice(DayType.WEEKDAY, ClientType.REWARDS, 40D);
         priceTable.addPrice( DayType.WEEKEND, ClientType.REGULAR, 80D);
     }
 
@@ -34,9 +34,9 @@ class PriceTableTest {
     @Test
     void shouldRemovePriceFromPriceTable() {
         // When
-        priceTable.removePrice(DayType.WEEK, ClientType.REGULAR);
+        priceTable.removePrice(DayType.WEEKDAY, ClientType.REGULAR);
         // Then
-        assertNull(priceTable.getPrice(DayType.WEEK, ClientType.REGULAR));
+        assertNull(priceTable.getPrice(DayType.WEEKDAY, ClientType.REGULAR));
         assertEquals(2, priceTable.size());
     }
 

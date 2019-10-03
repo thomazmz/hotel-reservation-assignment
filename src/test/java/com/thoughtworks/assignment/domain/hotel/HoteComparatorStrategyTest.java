@@ -4,7 +4,6 @@ import com.thoughtworks.assignment.domain.price.ClientType;
 import com.thoughtworks.assignment.domain.price.DayType;
 import com.thoughtworks.assignment.domain.price.PriceTable;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -23,7 +22,7 @@ class HoteComparatorStrategyTest {
     @BeforeAll
     static void createHotels() throws Exception {
 
-        DayType weekDay = DayType.WEEK;
+        DayType weekDay = DayType.WEEKDAY;
         DayType weekendDay = DayType.WEEKEND;
         ClientType regular = ClientType.REGULAR;
         ClientType rewards = ClientType.REWARDS;

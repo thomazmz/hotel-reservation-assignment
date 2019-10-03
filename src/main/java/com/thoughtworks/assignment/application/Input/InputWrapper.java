@@ -18,7 +18,7 @@ public class InputWrapper {
         this.clientType = clientType;
     }
 
-    public InputWrapper of(String inputString) throws Exception {
+    public static InputWrapper of(String inputString) throws Exception {
         return parser.parse(inputString);
     }
 
@@ -29,4 +29,5 @@ public class InputWrapper {
     public ClientType getClientType() {
         return clientType;
     }
+
 }

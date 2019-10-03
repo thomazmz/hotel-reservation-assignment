@@ -4,13 +4,13 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public enum DayType {
-    WEEK,
+    WEEKDAY,
     WEEKEND;
 
     public static final DayType getType(LocalDate date) {
         if(DayOfWeek.from(date) == DayOfWeek.SATURDAY || DayOfWeek.from(date) == DayOfWeek.SUNDAY) {
             return WEEKEND;
         }
-        return WEEK;
+        return WEEKDAY;
     }
 }

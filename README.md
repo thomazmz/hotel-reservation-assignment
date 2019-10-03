@@ -54,7 +54,7 @@ Check the "Usage Without Shell Script" section [here](#usage-without-shell-scrip
 
 ## Input Formatting
 
-Inputs, both when typed inline on terminal or when pre defined in an input file, must match the following pattern to be considered valid and readable by the program. Extra spaces and letter case will be disconsidered by the program during input parsing.
+Inputs, both when typed inline on terminal or when pre defined in an input file, must match the following pattern to be considered valid and readable by the program. Letter case will be disconsidered by the program during input parsing.
 
 ```
 <client_type>: <date>, <date>, <date>, ...

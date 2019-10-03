@@ -16,10 +16,6 @@ public class HotelService {
         this.hotelRepository = new HotelRepository();
     }
 
-    public void create(Hotel hotel) {
-        hotelRepository.add(hotel);
-    }
-
     public Hotel getCheapestHotel(ClientType clientType, List<LocalDate> dates) {
         return getHotelsOrderedByLowestPrice(clientType, dates).get(0);
     }
