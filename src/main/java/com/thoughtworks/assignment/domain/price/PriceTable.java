@@ -19,12 +19,12 @@ public class PriceTable {
         prices.remove(priceKey);
     }
 
-    public Double getPrice(LocalDate date, ClientType clientDeterminator) {
-        return getPrice(DayType.getType(date), clientDeterminator);
+    public Double getPrice(LocalDate date, ClientType clientType) {
+        return getPrice(DayType.getType(date), clientType);
     }
 
-    public Double getPrice(DayType dayType, ClientType clientDeterminator) {
-        PriceKey priceKey = new PriceKey(dayType, clientDeterminator);
+    public Double getPrice(DayType dayType, ClientType clientType) {
+        PriceKey priceKey = new PriceKey(dayType, clientType);
         return prices.get(priceKey);
     }
 
@@ -34,12 +34,12 @@ public class PriceTable {
 
     private class PriceKey {
 
-        private final DayType dateDeterminator;
-        private final ClientType clientDeterminator;
+        private final DayType dayType;
+        private final ClientType clientType;
 
-        public PriceKey(DayType dateDeterminator, ClientType clientDeterminator) {
-            this.dateDeterminator = dateDeterminator;
-            this.clientDeterminator = clientDeterminator;
+        public PriceKey(DayType dayType, ClientType clientType) {
+            this.dayType = dayType;
+            this.clientType = clientType;
         }
 
         @Override
@@ -47,13 +47,13 @@ public class PriceTable {
             if (this == o) return true;
             if (!(o instanceof PriceKey)) return false;
             PriceKey key = (PriceKey) o;
-            return dateDeterminator == key.dateDeterminator && clientDeterminator == key.clientDeterminator;
+            return dayType == key.dayType && clientType == key.clientType;
         }
 
         @Override
         public int hashCode() {
-            int result = dateDeterminator.hashCode();
-            result = 31 * result + clientDeterminator.hashCode();
+            int result = dayType.hashCode();
+            result = 31 * result + clientType.hashCode();
             return result;
         }
     }
