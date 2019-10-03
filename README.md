@@ -14,7 +14,7 @@ Write a program to find the cheapest hotel. The program entry will be a sequence
 
 ## Technologies and Prerequisites
 
-* [Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html/) - Language (depends on Java 11 or latter)
+* [Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html/) - Chosen Language (depends on Java 11 or latter)
 * [Maven](https://maven.apache.org/) - Dependency Management (depends on Maven 3.6.2 or latter)
 * [jUnit5](https://junit.org/junit5/) - Unit Testing Framework
 
@@ -36,25 +36,15 @@ mvn test
 
 ## Usage
 
-Once you successfully [build](#project-building-and-testing) the project you are going to be able to run the program simply by entering the following terminal command under the project root directory, which will call the `findCheapestHotel` script passing the value surrounded by quotation marks as input.
+Once you successfully [build](#project-building-and-testing) the project you are going to be able to run the program simply by entering the following terminal command under the project root directory.
 
 ```
-sh findCheapestHotel "Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)"
+java -cp target/hotel-reservation-assignment-1.0-SNAPSHOT.jar com.thoughtworks.assignment.Main
 ```
-
-If you call the `findCheapestHotel` script without any input string following it, the program will automatically look for an input file named *input* on the project root directory.
-
-```
-sh findCheapestHotel
-```
-
-Check the "Input Formatting" section [here](#input-formatting) to better understand how inputs must to be formatted.
-
-Check the "Usage Without Shell Script" section [here](#usage-without-shell-script) to run the program without using the `findCheapestHotel` script. 
 
 ## Input Formatting
 
-Inputs, both when typed inline on terminal or when pre defined in an input file, must match the following pattern to be considered valid and readable by the program. Letter case will be disconsidered by the program during input parsing.
+The program reads input strings from the "input" file located on the project root directory. Input strings must match the following pattern to be considered valid and readable by the program. Letter case will be disconsidered by the program during input parsing.
 
 ```
 <client_type>: <date>, <date>, <date>, ...
@@ -70,8 +60,8 @@ You can specify as many `date` parameters as you want. However, they also must f
 <day><month><year>(<day_of_week>)
 ```
 
-- `day` and `year` must be whole numbers;
-- `month` must be `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov` or `Dec`;
+- `day` and `year` must be whole numbers
+- `month` must be `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov` or `Dec`
 - `day_of_week` must be `mon`, `mond`,  `tue`, `tues`, `wed`, `wedn`, `thu`, `thur`, `fri`, `frid`, `sat`, `satu`, `sun` or `sund`
 
 In addition to the above constraints, the date string must also to be calendar consistent. A value greater than 31, for example, would not be considered valid when given as a day. An example of valid input string would be:
@@ -81,17 +71,13 @@ Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)
 ```
 
 ### Input Files
-When creating an input file, you must have your input strings one below the other, following the above specified rules. Make sure you named your file *"input"* and that it is on the project root folder. An example of valid input file would be:
+When creating an input file, you must have your input strings one below the other, following the above specified rules. Make sure you named your file "input" and that it is on the project root folder. An example of valid input file would be:
 
 ```
 Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed), 19Mar2009(thu)
 Regular: 20Mar2009(fri), 21Mar2009(sat)
 Rewards: 26Mar2009(thur), 27Mar2009(fri), 28Mar2009(sat)
 ```
-
-## Usage Without Shell Script
-
---- Something goes here --- 
 
 ## Author
 
