@@ -10,10 +10,10 @@ import java.util.List;
 
 public class HotelService {
 
-    HotelRepository hotelRepository;
+    private HotelRepository repository;
 
     public HotelService() {
-        this.hotelRepository = new HotelRepository();
+        this.repository = new HotelRepository();
     }
 
     public Hotel getCheapestHotel(ClientType clientType, List<LocalDate> dates) {
@@ -21,7 +21,7 @@ public class HotelService {
     }
 
     public List<Hotel> getHotelsOrderedByLowestPrice(ClientType clientType, List<LocalDate> dates) {
-        List<Hotel> hotels = hotelRepository.findAll();
+        List<Hotel> hotels = repository.findAll();
         HoteComparatorStrategy hoteComparatorStrategy = new HoteComparatorStrategy(clientType, dates);
         Collections.sort(hotels, hoteComparatorStrategy);
         return hotels;
