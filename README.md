@@ -1,8 +1,8 @@
 # Hotel Finder Assignment
 
-A Miami hotel chain would like to offer an internet booking service. The chain is made up of three hotels: Lakewood, Bridgewood and Ridgewood. Each hotel has different weekday or weekend rates, including specific rates for loyalty program participants. Additionally, each hotel has a rating, indicates a service of excellence.
+A Miami hotel chain would like to offer an internet booking service. The chain is made up of three hotels: Lakewood, Bridgewood and Ridgewood. Each hotel has different weekday or weekend rates, including specific rates for loyalty program participants. Additionally, each hotel has a rating, indicating its service quality.
 
-Write a program to find the cheapest hotel. The program entry will be a sequence of data for a customer participating or not in the loyalty program. Use "Regular" to name a regular customer and "Reward" to a customer participating in the loyalty program. Exit will be the cheapest available hotel and in case of a tie, or the higher rated hotel will be returned.
+Write a program to find the cheapest hotel. The program entry will be a sequence of data for a customer participating or not in the loyalty program. Use "Regular" to name a regular customer and "Reward" to a customer participating in the loyalty program. The exit will be the cheapest available hotel or, in case of a tie, the higher rated hotel will be returned.
 
 ### Business specifications
 
@@ -14,21 +14,21 @@ Write a program to find the cheapest hotel. The program entry will be a sequence
 
 ## Technologies and Prerequisites
 
-* [Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html/) - Chosen language (depends on Java 11 or latter)
+* [Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html/) - Language (depends on Java 11 or latter)
 * [Maven](https://maven.apache.org/) - Dependency Management (depends on Maven 3.6.2 or latter)
-* [jUnit5](https://junit.org/junit5/) - Unit Testing Framework (managed and downloaded by maven during the building process)
+* [jUnit5](https://junit.org/junit5/) - Unit Testing Framework
 
 ## Project Building and Testing
 
-As this project relies on Maven as a dependency manager and as a test runner, make shure you have Maven 3.6.2 or latter installed on your machine by entering `mvn --version`  on any terminal window. For more information about how to install Maven, access its official web site (http://maven.apache.org/install.html).
+As this project relies on Maven as a dependency manager and as a test runner, make sure you have Maven 3.6.2 or later installed on your machine entering `mvn --version`  on your terminal. For more information about how to install Maven, access its official website (http://maven.apache.org/install.html).
 
-**Building the Project:** Navigate through a terminal window to the project root directory and enter the following command waiting untill the project successfully had been builded.
+**Building the Project:** In the terminal, navigate to the project root directory and enter the following command waiting until the project successfully has been builded.
 
 ```
 mvn package
 ```
 
-**Testing the Project:** The testing pipeline will automatically be triggered during the building process discribed above. Even so, if you want/need, you can achieve to run it independently by navigating to the project root directory and entering:
+**Testing the Project:** The testing pipeline will automatically be triggered during the building process described above. Even so, if you want/need, you can run it independently by navigating to the project root directory and entering:
 
 ```
 mvn test
@@ -36,7 +36,7 @@ mvn test
 
 ## Usage
 
-Once you successfully [build](#project-building-and-testing) the project you're gonna be able to run the program simply by entering the following terminal command under the project root directory, which will call the `findCheapestHotel` script passing the value surrounded by quotation marks as input.
+Once you successfully [build](#project-building-and-testing) the project you are going to be able to run the program simply by entering the following terminal command under the project root directory, which will call the `findCheapestHotel` script passing the value surrounded by quotation marks as input.
 
 ```
 sh findCheapestHotel "Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)"
@@ -64,24 +64,24 @@ Inputs, both when typed inline on terminal or when pre defined in an input file,
 There are two  valid `client_type` strings. They are: `Rewards` and `Regular`. 
 
 ### Dates
-You can specify as many `date` parameters as you want. However, they also must follow a pattern to be considered valid and readable by the program. It is: 
+You can specify as many `date` parameters as you want. However, they also must follow a pattern to be considered valid and readable by the program. The `date` string must match the following template:
 
 ```
 <day><month><year>(<day_of_week>)
 ```
 
 - `day` and `year` must be whole numbers;
-- `month` must be `Jan`, `Feb`, `Mar`, `Abr`, `May`, `Jun`, `Jul`, `Ago`, `Sep`, `Out`, `Nov` or `Dec`;
+- `month` must be `Jan`, `Feb`, `Mar`, `Apr`, `May`, `Jun`, `Jul`, `Aug`, `Sep`, `Oct`, `Nov` or `Dec`;
 - `day_of_week` must be `mon`, `mond`,  `tue`, `tues`, `wed`, `wedn`, `thu`, `thur`, `fri`, `frid`, `sat`, `satu`, `sun` or `sund`
 
-In addition to the above constraints, the given date have to be calendar consistent: A value greater than 31 would not be considered valid when passed as a day, for example. An example of valid input string would be:
+In addition to the above constraints, the date string must also to be calendar consistent. A value greater than 31, for example, would not be considered valid when given as a day. An example of valid input string would be:
 
 ```
 Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)
 ```
 
 ### Input Files
-When creating an input file, you must have your input strings one bellow the other, following the above specified rules. Make shure you named your file *input* and that it is on the project root folder. An example of valid input file would be:
+When creating an input file, you must have your input strings one below the other, following the above specified rules. Make sure you named your file *"input"* and that it is on the project root folder. An example of valid input file would be:
 
 ```
 Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed), 19Mar2009(thu)
