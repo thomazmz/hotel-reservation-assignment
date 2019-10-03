@@ -1,4 +1,4 @@
-# Hotel Finder Assignment
+# Hotel Reservation Assignment
 
 A Miami hotel chain would like to offer an internet booking service. The chain is made up of three hotels: Lakewood, Bridgewood and Ridgewood. Each hotel has different weekday or weekend rates, including specific rates for loyalty program participants. Additionally, each hotel has a rating, indicating its service quality.
 
